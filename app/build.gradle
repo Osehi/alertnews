@@ -81,7 +81,7 @@ dependencies {
 
     // testImplementation
     // fragment-testing
-    testImplementation("ndroidx.navigation:navigation-testing:$nav_version")
+    testImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     // androidTestImplementation
 
