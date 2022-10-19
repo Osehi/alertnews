@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -34,8 +35,11 @@ android {
 }
 
 dependencies {
+    def fragment_version = "1.5.3"
+    def lifecycle_version = "2.6.0-alpha01"
+    def nav_version = "2.5.2"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -50,7 +54,7 @@ dependencies {
 
     // logging interceptor and okhttp
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
@@ -59,4 +63,26 @@ dependencies {
     //hilt
     implementation("com.google.dagger:hilt-android:2.42")
     kapt("com.google.dagger:hilt-android-compiler:2.42")
+
+    //Navigation graph
+    implementation  "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation  "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Kotlin-fragment-dependency
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // testImplementation
+    // fragment-testing
+    testImplementation("ndroidx.navigation:navigation-testing:$nav_version")
+
+    // androidTestImplementation
+
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+    // Testing Fragments in Isolation
+    debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
+    // For instrumented tests.
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    // ...with Kotlin.
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
 }
