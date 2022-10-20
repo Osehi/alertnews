@@ -1,11 +1,13 @@
 package com.polish.alertnews.common.di
 
+import com.polish.alertnews.common.constant.NetworkConstant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -41,6 +43,20 @@ object NetworkModule {
             .readTimeout(60L, TimeUnit.SECONDS)
             .writeTimeout(60L, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
+            .build()
+    }
+    /**
+     * it provides retrofit http client
+     * for available endpoints to use
+     */
+    fun provideRetrofitClientForEndpointUse(
+        client: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(NetworkConstant.BASE_URL)
+            .client(client)
+            .addConverterFactory(gsonConverterFactory)
             .build()
     }
 }
