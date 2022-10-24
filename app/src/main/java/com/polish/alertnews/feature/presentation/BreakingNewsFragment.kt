@@ -1,4 +1,4 @@
-package com.polish.alertnews.feature
+package com.polish.alertnews.feature.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
