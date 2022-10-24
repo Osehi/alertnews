@@ -18,6 +18,9 @@ android {
 
         testInstrumentationRunner "com.alertnews.common.utils.HiltTestRunner"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 
     buildTypes {
         release {
