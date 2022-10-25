@@ -1,6 +1,7 @@
 package com.polish.alertnews.common.di
 
 import com.polish.alertnews.common.constant.NetworkConstant
+import com.polish.alertnews.common.utils.header.HeaderInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,13 +37,15 @@ object NetworkModule {
      * provide the OkHttp
      */
     fun provideOkHttp(
-        loggingInterceptor: HttpLoggingInterceptor
+        loggingInterceptor: HttpLoggingInterceptor,
+        headerInterceptor: HeaderInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(60L, TimeUnit.SECONDS)
             .readTimeout(60L, TimeUnit.SECONDS)
             .writeTimeout(60L, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(headerInterceptor)
             .build()
     }
     /**
