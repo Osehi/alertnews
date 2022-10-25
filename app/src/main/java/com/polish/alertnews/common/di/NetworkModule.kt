@@ -36,6 +36,8 @@ object NetworkModule {
     /**
      * provide the OkHttp
      */
+    @Provides
+    @Singleton
     fun provideOkHttp(
         loggingInterceptor: HttpLoggingInterceptor,
         headerInterceptor: HeaderInterceptor
@@ -52,6 +54,8 @@ object NetworkModule {
      * it provides retrofit http client
      * for available endpoints to use
      */
+    @Provides
+    @Singleton
     fun provideRetrofitClientForEndpointUse(
         client: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory

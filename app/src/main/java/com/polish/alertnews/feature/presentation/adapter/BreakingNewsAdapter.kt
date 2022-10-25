@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.polish.alertnews.databinding.BreakingNewsItemBinding
 import com.polish.alertnews.feature.data.network.model.newsarticle.Article
 
-class BreakingNewsAdapter(var newsList: MutableList<Article>): RecyclerView.Adapter<BreakingNewsAdapter.BreakingNewsListViewHolder>() {
+class BreakingNewsAdapter(var newsList: List<Article>): RecyclerView.Adapter<BreakingNewsAdapter.BreakingNewsListViewHolder>() {
 
     class BreakingNewsListViewHolder(private val binding: BreakingNewsItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(news: Article, context: Context) {
