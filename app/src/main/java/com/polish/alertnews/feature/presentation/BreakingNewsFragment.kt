@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.polish.alertnews.databinding.FragmentBreakingNewsBinding
 
 class BreakingNewsFragment : Fragment() {
@@ -14,6 +15,7 @@ class BreakingNewsFragment : Fragment() {
      */
     private var _binding: FragmentBreakingNewsBinding? = null
     private val binding: FragmentBreakingNewsBinding get() = _binding!!
+    private val breakingNewsViewModel: BreakingNewViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
