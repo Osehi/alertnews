@@ -13,7 +13,7 @@ class BreakingNewsListUsecase @Inject constructor(
     private val breakingNewsRepository: BreakingNewsRepository
 ) {
 
-    operator fun invoke(countryCode: String, pageNumber: Int) : Flow<Resource<NewsResponse>>  = flow {
+    operator fun invoke(countryCode: String, pageNumber: Int): Flow<Resource<NewsResponse>> = flow {
         try {
             emit(Resource.Loading())
             val response = breakingNewsRepository.getAllBreakingNews(countryCode, pageNumber)
@@ -23,6 +23,5 @@ class BreakingNewsListUsecase @Inject constructor(
         } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach server check your internet connection"))
         }
-
     }
 }
