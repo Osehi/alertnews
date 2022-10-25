@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AlertNews</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="breakingNewsFragment_newsSource">Source</string>
+    <string name="breakingNewsFragment_publishDate">Published At</string>
+    <string name="breakingNewsFragment_newsTitle">Title</string>
+    <string name="breakingNewsFragment_newsDescription_tv">Description</string>
 </resources>
